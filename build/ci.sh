@@ -11,11 +11,6 @@ export args=$*
 
 write_log "Arguments --> ${args}"
 
-write_log "####################  Install Prerequisites ####################"
-
-run_cmd "sudo apt-get install python3-venv"
-run_cmd "python -m ensurepip --default-pip"
-
 write_log "####################  Install PPExtensions ####################"
 
 run_cmd "pip install ppextensions"

@@ -1,13 +1,14 @@
-# Choosing the distribution
-dist: trusty
+language: python
 
-language: generic
-
-install:
-   - bash build/ci.sh
+python:
+  - '3.5'
 
 branches:
   only:
     - master
     - develop
+
+script:
+   - bash build/ci.sh
+
 
