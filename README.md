@@ -1,3 +1,6 @@
+[![Documentation Status](https://readthedocs.org/projects/ppextensions/badge/?version=latest)](http://ppextensions.readthedocs.io/en/latest/?badge=latest)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 # PPExtensions
 
 PPExtensions is a suite of ipython and jupyter extensions built to improve user experience and reduce time to market in [Jupyter](http://jupyter.org) notebooks.
