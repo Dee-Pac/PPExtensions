@@ -13,33 +13,12 @@ write_log "Arguments --> ${args}"
 
 write_log "####################  Install Prerequisites ####################"
 
-write_log " --------------- Cleanup temporary dir ----------------- "
+run_cmd "sudo apt-get install python3-venv"
+run_cmd "python -m ensurepip --default-pip"
 
-write_log "Recreating ${WORK_DIR} if already exists ..."
-run_cmd "rm -rf ${WORK_DIR}"
-run_cmd "mkdir ${WORK_DIR}"
+write_log "####################  Install PPExtensions ####################"
 
-write_log " ------------- Setup Python in the local environment ------------- "
-
-run_cmd "cd ${WORK_DIR}"
-run_cmd "wget ${PYTHON_URL}"
-run_cmd "tar xjf ${PYTHON_TAR_BALL} --directory ${WORK_DIR}"
-run_cmd "source ${WORK_DIR}/home/travis/virtualenv/python${PYTHON_VERSION}/bin/activate"
-write_log "setting the python path ..."
-run_cmd "export PATH=${WORK_DIR}/home/travis/virtualenv/python${PYTHON_VERSION}/bin:${PATH}"
-
-write_log " ----------- Install Tableau SDK ------------- "
-
-run_cmd "wget ${TABLEAU_URL}"
-run_cmd "tar -xvf ${TABLEAU_TAR_BALL}"
-run_cmd "cd $(ls | grep Tableau | grep -v gz)"
-run_cmd "python setup.py install"
-
-write_log "####################  Install ppextensions ####################"
-
-run_cmd "cd ${HOME}"
 run_cmd "pip install ppextensions"
-run_cmd "rm -rf ${WORK_DIR}"
 
 write_log "########################  BUILD SUCCESS ###############################"
 
